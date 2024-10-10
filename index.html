@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Berita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        article {
+            background: #fff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .btn-selengkapnya {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-selengkapnya:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Detail Style */
+        #detail {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NGAWIBREAKINGNEWS</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showMain()">Beranda</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <article>
+            <h2>Raper asal ngawi, Young Rus meninggal, XXTenAmba : ada yang menyabotase!!</h2>
+            <p>Tanggal: 6 September 2024</p>
+            <img src="raper.jpg" alt="Gambar Berita 1">
+            <p>Info lengkap ↓</p>
+            <a class="btn-selengkapnya" href="#" onclick="showDetail(1)">Selengkapnya</a>
+        </article>
+        <article>
+            <h2>Kumar Sunna Selesi, Penyanyi Asal Jamaico Yang Mengguncang dunia dengan suaranya,
+            Ngawi Musical : Penerus Sudarnomo andi 77!!</h2>
+            <p>Tanggal: 5 Oktober 2024</p>
+            <img src="penyanyi.jpg" alt="Gambar Berita 2">
+            <p>Berita selengkapnya ↓</p>
+            <a class="btn-selengkapnya" href="#" onclick="showDetail(2)">Selengkapnya</a>
+        </article>
+    </main>
+
+    <div id="detail">
+        <article>
+            <h2 id="judul"></h2>
+            <p id="tanggal"></p>
+            <img id="gambar" src="" alt="Gambar Detail">
+            <p id="isi"></p>
+            <button onclick="showMain()">Kembali</button>
+        </article>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Website Berita. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        const data = {
+            1: {
+                judul: "Raper asal ngawi, Young Rus meninggal, XXTenAmba : ada yang menyabotase!!",
+                tanggal: "6 September 2024",
+                gambar: "raper.jpg",
+                isi: "Young Rus atau yang kita panggil Rusdi Serfior, seorang raper asal ngawi yang karirnya mendunia pada tahun 1967, akhir akhir ini sedang buming karna rumor kematiannya, beliau ditemukan tidak bernyawa di salah satu kafe di daerah WasJomki, ngawi selatan, beliau terakhir terlihat sedang bersama Joseph ImutXSec setelah pulang dari event Battle Rap Champion, XXTenAmba : Joseph pernah ada masalah dengan Young Rus, Pasti Pembunuhan ini Sudah direncanakan!! "
+            },
+            2: {
+                judul: "Kumar Sunna Selesi, Penyanyi Asal Jamaico Yang Mengguncang dunia dengan suaranya, Ngawi Musical : Penerus Sudarnomo andi 77!!",
+                tanggal: "5 Oktober 2024",
+                gambar: "penyanyi.jpg",
+                isi: "Kumar Sunna Selesi atau yang dikenal dengan Kumar XTan, seorang penyanyi yang dapat menyaingi kemampuan bernyanyi King Hip Hop, sudarmono andi 77, saat tampil di acara Ngawi Musical next Champion, para juri seperti Ambamusica terkagum kagum, rata rata nilai yang diberikan oleh juri adalah 95/100!!, mampukan seorang Kumar menjadi King HipHop priode 2024-2028?!?! "
+            }
+        };
+
+        function showDetail(id) {
+            const berita = data[id];
+            document.getElementById('judul').innerText = berita.judul;
+            document.getElementById('tanggal').innerText = berita.tanggal;
+            document.getElementById('gambar').src = berita.gambar;
+            document.getElementById('isi').innerText = berita.isi;
+
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('detail').style.display = 'block';
+        }
+
+        function showMain() {
+            document.getElementById('main').style.display = 'block';
+            document.getElementById('detail').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
